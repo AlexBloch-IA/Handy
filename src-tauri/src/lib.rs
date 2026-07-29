@@ -167,6 +167,11 @@ fn initialize_core_logic(app_handle: &AppHandle) {
     );
     let history_manager =
         Arc::new(HistoryManager::new(app_handle).expect("Failed to initialize history manager"));
+    let file_transcription_manager =
+        Arc::new(managers::file_transcription::FileTranscriptionManager::new(
+            app_handle.clone(),
+            transcription_manager.clone(),
+        ));
 
     // Initialize the transcribe-cpp native backend (logging + backend module
     // registration) once, before any whisper model is loaded.
@@ -180,6 +185,7 @@ fn initialize_core_logic(app_handle: &AppHandle) {
     app_handle.manage(model_manager.clone());
     app_handle.manage(transcription_manager.clone());
     app_handle.manage(history_manager.clone());
+    app_handle.manage(file_transcription_manager.clone());
     app_handle.manage(tray::CurrentTrayIconState::new());
 
     // Note: Shortcuts are NOT initialized here.
@@ -707,12 +713,17 @@ pub fn run(cli_args: CliArgs) {
             commands::history::retry_history_entry_transcription,
             commands::history::update_history_limit,
             commands::history::update_recording_retention_period,
+            commands::file_transcription::enqueue_file_transcriptions,
+            commands::file_transcription::cancel_file_transcription,
+            commands::file_transcription::list_file_transcription_jobs,
+            commands::file_transcription::reveal_transcript_file,
             helpers::clamshell::is_laptop,
         ])
         .events(collect_events![
             managers::history::HistoryUpdatePayload,
             managers::transcription::StreamTextEvent,
             managers::transcription::StreamPhaseEvent,
+            managers::file_transcription::FileTranscriptionProgress,
         ]);
 
     #[cfg(debug_assertions)] // <- Only export on non-release builds

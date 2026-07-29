@@ -845,6 +845,33 @@ async updateRecordingRetentionPeriod(period: string) : Promise<Result<null, stri
     else return { status: "error", error: e  as any };
 }
 },
+async enqueueFileTranscriptions(paths: string[]) : Promise<Result<FileTranscriptionJob[], string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("enqueue_file_transcriptions", { paths }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async cancelFileTranscription(jobId: string) : Promise<void> {
+    await TAURI_INVOKE("cancel_file_transcription", { jobId });
+},
+async listFileTranscriptionJobs() : Promise<FileTranscriptionJob[]> {
+    return await TAURI_INVOKE("list_file_transcription_jobs");
+},
+/**
+ * Révèle le `.txt` dans le Finder / l'explorateur. Passer par le backend
+ * évite d'avoir à ouvrir une permission `fs:scope` sur tout le disque côté
+ * frontend.
+ */
+async revealTranscriptFile(path: string) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("reveal_transcript_file", { path }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
 /**
  * Checks if the Mac is a laptop by detecting battery presence
  * 
@@ -865,10 +892,12 @@ async isLaptop() : Promise<Result<boolean, string>> {
 
 
 export const events = __makeEvents__<{
+fileTranscriptionProgress: FileTranscriptionProgress,
 historyUpdatePayload: HistoryUpdatePayload,
 streamPhaseEvent: StreamPhaseEvent,
 streamTextEvent: StreamTextEvent
 }>({
+fileTranscriptionProgress: "file-transcription-progress",
 historyUpdatePayload: "history-update-payload",
 streamPhaseEvent: "stream-phase-event",
 streamTextEvent: "stream-text-event"
@@ -925,6 +954,35 @@ export type EngineType =
  * the file, so this one variant covers the whole transcribe-cpp family.
  */
 "TranscribeCpp" | "Parakeet" | "Moonshine" | "MoonshineStreaming" | "SenseVoice" | "GigaAM" | "Canary" | "Cohere"
+export type FileTranscriptionJob = { id: string; 
+/**
+ * Chemin absolu du fichier source.
+ */
+source_path: string; 
+/**
+ * Nom de fichier seul, pour l'affichage.
+ */
+file_name: string; status: JobStatus; chunks_done: number; 
+/**
+ * 0 tant que le décodage n'a pas eu lieu.
+ */
+chunks_total: number; 
+/**
+ * Durée de l'audio en secondes, connue après décodage.
+ */
+duration_secs: number; 
+/**
+ * Transcript final, renseigné quand `status == Done`.
+ */
+transcript: string | null; 
+/**
+ * Chemin du `.txt` écrit, si l'écriture a réussi.
+ */
+output_path: string | null; error: string | null }
+/**
+ * Événement de progression émis après chaque bloc transcrit.
+ */
+export type FileTranscriptionProgress = { job: FileTranscriptionJob }
 export type GpuDeviceOption = { id: number; name: string; total_vram_mb: number }
 export type HistoryEntry = { id: number; file_name: string; timestamp: number; saved: boolean; title: string; transcription_text: string; post_processed_text: string | null; post_process_prompt: string | null; post_process_requested: boolean }
 export type HistoryUpdatePayload = { action: "added"; entry: HistoryEntry } | { action: "updated"; entry: HistoryEntry } | { action: "deleted"; id: number } | { action: "toggled"; id: number }
@@ -936,6 +994,7 @@ export type ImplementationChangeResult = { success: boolean;
  * List of binding IDs that were reset to defaults due to incompatibility
  */
 reset_bindings: string[] }
+export type JobStatus = "queued" | "decoding" | "transcribing" | "done" | "failed" | "cancelled"
 export type KeyboardImplementation = "tauri" | "handy_keys"
 export type LLMPrompt = { id: string; name: string; prompt: string }
 export type LogLevel = "trace" | "debug" | "info" | "warn" | "error"
