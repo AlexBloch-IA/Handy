@@ -14,8 +14,31 @@
     "advanced": "Avancé",
     "postProcessing": "Post-traitement",
     "history": "Historique",
+    "files": "Fichiers",
     "debug": "Débogage",
     "about": "À propos"
+  },
+  "files": {
+    "title": "Transcrire des fichiers audio",
+    "dropHint": "Déposez vos enregistrements de call ici (m4a, mp3, mp4, wav, flac, ogg)",
+    "browse": "Parcourir…",
+    "audioFilter": "Fichiers audio",
+    "queue": "File d'attente",
+    "result": "Transcript",
+    "copy": "Copier",
+    "copied": "Transcript copié",
+    "reveal": "Afficher le fichier",
+    "revealError": "Impossible d'afficher le fichier",
+    "cancel": "Annuler",
+    "genericError": "Échec de la transcription",
+    "status": {
+      "queued": "En attente",
+      "decoding": "Décodage…",
+      "transcribing": "Transcription…",
+      "done": "Terminé",
+      "failed": "Échec",
+      "cancelled": "Annulé"
+    }
   },
   "onboarding": {
     "subtitle": "Pour commencer, choisissez un modèle de transcription",

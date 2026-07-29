@@ -14,8 +14,31 @@
     "advanced": "Advanced",
     "postProcessing": "Post Process",
     "history": "History",
+    "files": "Files",
     "debug": "Debug",
     "about": "About"
+  },
+  "files": {
+    "title": "Transcribe audio files",
+    "dropHint": "Drop call recordings here (m4a, mp3, mp4, wav, flac, ogg)",
+    "browse": "Browse…",
+    "audioFilter": "Audio files",
+    "queue": "Queue",
+    "result": "Transcript",
+    "copy": "Copy",
+    "copied": "Transcript copied",
+    "reveal": "Show file",
+    "revealError": "Could not show the file",
+    "cancel": "Cancel",
+    "genericError": "Transcription failed",
+    "status": {
+      "queued": "Waiting",
+      "decoding": "Decoding…",
+      "transcribing": "Transcribing…",
+      "done": "Done",
+      "failed": "Failed",
+      "cancelled": "Cancelled"
+    }
   },
   "onboarding": {
     "subtitle": "To get started, choose a transcription model",

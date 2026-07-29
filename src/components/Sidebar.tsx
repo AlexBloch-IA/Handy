@@ -1,6 +1,14 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Cog, FlaskConical, History, Info, Sparkles, Cpu } from "lucide-react";
+import {
+  Cog,
+  FileAudio,
+  FlaskConical,
+  History,
+  Info,
+  Sparkles,
+  Cpu,
+} from "lucide-react";
 import HandyTextLogo from "./icons/HandyTextLogo";
 import HandyHand from "./icons/HandyHand";
 import { useSettings } from "../hooks/useSettings";
@@ -8,6 +16,7 @@ import {
   GeneralSettings,
   AdvancedSettings,
   HistorySettings,
+  FilesSettings,
   DebugSettings,
   AboutSettings,
   PostProcessingSettings,
@@ -42,6 +51,12 @@ export const SECTIONS_CONFIG = {
     labelKey: "sidebar.history",
     icon: History,
     component: HistorySettings,
+    enabled: () => true,
+  },
+  files: {
+    labelKey: "sidebar.files",
+    icon: FileAudio,
+    component: FilesSettings,
     enabled: () => true,
   },
   models: {
