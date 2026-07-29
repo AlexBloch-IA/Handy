@@ -14,8 +14,31 @@
     "advanced": "進階",
     "postProcessing": "後處理",
     "history": "歷史紀錄",
+    "files": "檔案",
     "debug": "偵錯",
     "about": "關於"
+  },
+  "files": {
+    "title": "轉錄音訊檔案",
+    "dropHint": "將通話錄音拖放到這裡 (m4a, mp3, mp4, wav, flac, ogg)",
+    "browse": "瀏覽…",
+    "audioFilter": "音訊檔案",
+    "queue": "佇列",
+    "result": "轉錄文字",
+    "copy": "複製",
+    "copied": "轉錄文字已複製",
+    "reveal": "顯示檔案",
+    "revealError": "無法顯示檔案",
+    "cancel": "取消",
+    "genericError": "轉錄失敗",
+    "status": {
+      "queued": "等待中",
+      "decoding": "解碼中…",
+      "transcribing": "轉錄中…",
+      "done": "完成",
+      "failed": "失敗",
+      "cancelled": "已取消"
+    }
   },
   "onboarding": {
     "subtitle": "首先，請選擇一種模型",

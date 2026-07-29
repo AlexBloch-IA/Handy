@@ -14,8 +14,31 @@
     "advanced": "Geavanceerd",
     "postProcessing": "Naverwerking",
     "history": "Geschiedenis",
+    "files": "Bestanden",
     "debug": "Probleemoplossing",
     "about": "Over Handy"
+  },
+  "files": {
+    "title": "Audiobestanden transcriberen",
+    "dropHint": "Zet hier gespreksopnames neer (m4a, mp3, mp4, wav, flac, ogg)",
+    "browse": "Bladeren…",
+    "audioFilter": "Audiobestanden",
+    "queue": "Wachtrij",
+    "result": "Transcriptie",
+    "copy": "Kopiëren",
+    "copied": "Transcriptie gekopieerd",
+    "reveal": "Bestand tonen",
+    "revealError": "Kon het bestand niet tonen",
+    "cancel": "Annuleren",
+    "genericError": "Transcriptie mislukt",
+    "status": {
+      "queued": "Wachtend",
+      "decoding": "Decoderen…",
+      "transcribing": "Transcriberen…",
+      "done": "Voltooid",
+      "failed": "Mislukt",
+      "cancelled": "Geannuleerd"
+    }
   },
   "onboarding": {
     "subtitle": "Kies een transcriptiemodel om aan de slag te gaan",

@@ -14,8 +14,31 @@
     "advanced": "Avanceret",
     "postProcessing": "Efterbehandling",
     "history": "Historik",
+    "files": "Filer",
     "debug": "Fejlfinding",
     "about": "Om"
+  },
+  "files": {
+    "title": "Transskribér lydfiler",
+    "dropHint": "Slip opkaldsoptagelser her (m4a, mp3, mp4, wav, flac, ogg)",
+    "browse": "Gennemse…",
+    "audioFilter": "Lydfiler",
+    "queue": "Kø",
+    "result": "Transskription",
+    "copy": "Kopiér",
+    "copied": "Transskription kopieret",
+    "reveal": "Vis fil",
+    "revealError": "Kunne ikke vise filen",
+    "cancel": "Annuller",
+    "genericError": "Transskription mislykkedes",
+    "status": {
+      "queued": "Venter",
+      "decoding": "Afkoder…",
+      "transcribing": "Transskriberer…",
+      "done": "Færdig",
+      "failed": "Mislykkedes",
+      "cancelled": "Annulleret"
+    }
   },
   "onboarding": {
     "subtitle": "For at komme i gang skal du vælge en transskriptionsmodel",

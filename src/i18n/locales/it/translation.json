@@ -14,8 +14,31 @@
     "advanced": "Avanzate",
     "postProcessing": "Post-Elaborazione",
     "history": "Cronologia",
+    "files": "File",
     "debug": "Debug",
     "about": "Informazioni"
+  },
+  "files": {
+    "title": "Trascrivi file audio",
+    "dropHint": "Trascina qui le registrazioni delle chiamate (m4a, mp3, mp4, wav, flac, ogg)",
+    "browse": "Sfoglia…",
+    "audioFilter": "File audio",
+    "queue": "Coda",
+    "result": "Trascrizione",
+    "copy": "Copia",
+    "copied": "Trascrizione copiata",
+    "reveal": "Mostra file",
+    "revealError": "Impossibile mostrare il file",
+    "cancel": "Annulla",
+    "genericError": "Trascrizione non riuscita",
+    "status": {
+      "queued": "In attesa",
+      "decoding": "Decodifica…",
+      "transcribing": "Trascrizione…",
+      "done": "Completato",
+      "failed": "Non riuscito",
+      "cancelled": "Annullato"
+    }
   },
   "onboarding": {
     "subtitle": "Per cominciare, scegli un modello di riconoscimento vocale",

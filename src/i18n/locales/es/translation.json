@@ -14,8 +14,31 @@
     "advanced": "Avanzado",
     "postProcessing": "Post proceso",
     "history": "Historial",
+    "files": "Archivos",
     "debug": "Depuración",
     "about": "Acerca de"
+  },
+  "files": {
+    "title": "Transcribir archivos de audio",
+    "dropHint": "Suelta aquí las grabaciones de llamadas (m4a, mp3, mp4, wav, flac, ogg)",
+    "browse": "Examinar…",
+    "audioFilter": "Archivos de audio",
+    "queue": "Cola",
+    "result": "Transcripción",
+    "copy": "Copiar",
+    "copied": "Transcripción copiada",
+    "reveal": "Mostrar archivo",
+    "revealError": "No se pudo mostrar el archivo",
+    "cancel": "Cancelar",
+    "genericError": "Error de transcripción",
+    "status": {
+      "queued": "En espera",
+      "decoding": "Decodificando…",
+      "transcribing": "Transcribiendo…",
+      "done": "Listo",
+      "failed": "Fallido",
+      "cancelled": "Cancelado"
+    }
   },
   "onboarding": {
     "subtitle": "Para comenzar, elige un modelo de transcripción",

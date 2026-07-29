@@ -13,9 +13,32 @@
     "advanced": "متقدم",
     "postProcessing": "معالجة لاحقة",
     "history": "السجل",
+    "files": "الملفات",
     "debug": "تصحيح الأخطاء",
     "about": "حول",
     "models": "النماذج"
+  },
+  "files": {
+    "title": "تفريغ الملفات الصوتية نصياً",
+    "dropHint": "أفلت تسجيلات المكالمات هنا (m4a, mp3, mp4, wav, flac, ogg)",
+    "browse": "استعراض…",
+    "audioFilter": "ملفات صوتية",
+    "queue": "قائمة الانتظار",
+    "result": "النص المفرغ",
+    "copy": "نسخ",
+    "copied": "تم نسخ النص المفرغ",
+    "reveal": "إظهار الملف",
+    "revealError": "تعذر إظهار الملف",
+    "cancel": "إلغاء",
+    "genericError": "فشل التفريغ النصي",
+    "status": {
+      "queued": "في الانتظار",
+      "decoding": "جارٍ فك الترميز…",
+      "transcribing": "جارٍ التفريغ…",
+      "done": "تم",
+      "failed": "فشل",
+      "cancelled": "أُلغي"
+    }
   },
   "onboarding": {
     "subtitle": "للبدء، اختر نموذج التفريغ الصوتي",

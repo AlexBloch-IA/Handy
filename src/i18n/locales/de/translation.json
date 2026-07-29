@@ -14,8 +14,31 @@
     "advanced": "Erweitert",
     "postProcessing": "Nachbearbeitung",
     "history": "Verlauf",
+    "files": "Dateien",
     "debug": "Debug",
     "about": "Info"
+  },
+  "files": {
+    "title": "Audiodateien transkribieren",
+    "dropHint": "Anrufaufnahmen hier ablegen (m4a, mp3, mp4, wav, flac, ogg)",
+    "browse": "Durchsuchen…",
+    "audioFilter": "Audiodateien",
+    "queue": "Warteschlange",
+    "result": "Transkript",
+    "copy": "Kopieren",
+    "copied": "Transkript kopiert",
+    "reveal": "Datei anzeigen",
+    "revealError": "Datei konnte nicht angezeigt werden",
+    "cancel": "Abbrechen",
+    "genericError": "Transkription fehlgeschlagen",
+    "status": {
+      "queued": "Wartend",
+      "decoding": "Dekodiere…",
+      "transcribing": "Transkribiere…",
+      "done": "Fertig",
+      "failed": "Fehlgeschlagen",
+      "cancelled": "Abgebrochen"
+    }
   },
   "onboarding": {
     "subtitle": "Wähle ein Transkriptionsmodell, um loszulegen",

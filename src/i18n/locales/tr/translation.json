@@ -14,8 +14,31 @@
     "advanced": "Gelişmiş",
     "postProcessing": "Son İşlem",
     "history": "Geçmiş",
+    "files": "Dosyalar",
     "debug": "Hata Ayıklama",
     "about": "Hakkında"
+  },
+  "files": {
+    "title": "Ses dosyalarını yazıya dök",
+    "dropHint": "Çağrı kayıtlarını buraya bırakın (m4a, mp3, mp4, wav, flac, ogg)",
+    "browse": "Göz at…",
+    "audioFilter": "Ses dosyaları",
+    "queue": "Kuyruk",
+    "result": "Transkript",
+    "copy": "Kopyala",
+    "copied": "Transkript kopyalandı",
+    "reveal": "Dosyayı göster",
+    "revealError": "Dosya gösterilemedi",
+    "cancel": "İptal",
+    "genericError": "Transkripsiyon başarısız oldu",
+    "status": {
+      "queued": "Bekliyor",
+      "decoding": "Çözülüyor…",
+      "transcribing": "Yazıya dökülüyor…",
+      "done": "Tamamlandı",
+      "failed": "Başarısız",
+      "cancelled": "İptal edildi"
+    }
   },
   "onboarding": {
     "subtitle": "Başlamak için bir transkripsiyon modeli seçin",

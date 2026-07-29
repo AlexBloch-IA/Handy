@@ -14,8 +14,31 @@
     "advanced": "高级",
     "postProcessing": "后处理",
     "history": "历史记录",
+    "files": "文件",
     "debug": "调试",
     "about": "关于"
+  },
+  "files": {
+    "title": "转录音频文件",
+    "dropHint": "将通话录音拖放到此处 (m4a, mp3, mp4, wav, flac, ogg)",
+    "browse": "浏览…",
+    "audioFilter": "音频文件",
+    "queue": "队列",
+    "result": "转录文本",
+    "copy": "复制",
+    "copied": "转录文本已复制",
+    "reveal": "显示文件",
+    "revealError": "无法显示文件",
+    "cancel": "取消",
+    "genericError": "转录失败",
+    "status": {
+      "queued": "等待中",
+      "decoding": "解码中…",
+      "transcribing": "转录中…",
+      "done": "完成",
+      "failed": "失败",
+      "cancelled": "已取消"
+    }
   },
   "onboarding": {
     "subtitle": "请选择一个转录模型以开始使用",

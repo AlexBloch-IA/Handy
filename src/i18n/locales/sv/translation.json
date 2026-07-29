@@ -14,8 +14,31 @@
     "advanced": "Avancerat",
     "postProcessing": "Efterbearbetning",
     "history": "Historik",
+    "files": "Filer",
     "debug": "Felsökning",
     "about": "Om"
+  },
+  "files": {
+    "title": "Transkribera ljudfiler",
+    "dropHint": "Släpp samtalsinspelningar här (m4a, mp3, mp4, wav, flac, ogg)",
+    "browse": "Bläddra…",
+    "audioFilter": "Ljudfiler",
+    "queue": "Kö",
+    "result": "Transkription",
+    "copy": "Kopiera",
+    "copied": "Transkription kopierad",
+    "reveal": "Visa fil",
+    "revealError": "Kunde inte visa filen",
+    "cancel": "Avbryt",
+    "genericError": "Transkriptionen misslyckades",
+    "status": {
+      "queued": "Väntar",
+      "decoding": "Avkodar…",
+      "transcribing": "Transkriberar…",
+      "done": "Klar",
+      "failed": "Misslyckades",
+      "cancelled": "Avbruten"
+    }
   },
   "onboarding": {
     "subtitle": "För att komma igång, välj en transkriptionsmodell",

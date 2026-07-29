@@ -14,8 +14,31 @@
     "advanced": "Nâng cao",
     "postProcessing": "Xử lý sau",
     "history": "Lịch sử",
+    "files": "Tệp",
     "debug": "Gỡ lỗi",
     "about": "Giới thiệu"
+  },
+  "files": {
+    "title": "Phiên âm tệp âm thanh",
+    "dropHint": "Thả bản ghi âm cuộc gọi vào đây (m4a, mp3, mp4, wav, flac, ogg)",
+    "browse": "Duyệt…",
+    "audioFilter": "Tệp âm thanh",
+    "queue": "Hàng đợi",
+    "result": "Bản phiên âm",
+    "copy": "Sao chép",
+    "copied": "Đã sao chép bản phiên âm",
+    "reveal": "Hiển thị tệp",
+    "revealError": "Không thể hiển thị tệp",
+    "cancel": "Hủy",
+    "genericError": "Phiên âm thất bại",
+    "status": {
+      "queued": "Đang chờ",
+      "decoding": "Đang giải mã…",
+      "transcribing": "Đang phiên âm…",
+      "done": "Hoàn tất",
+      "failed": "Thất bại",
+      "cancelled": "Đã hủy"
+    }
   },
   "onboarding": {
     "subtitle": "Để bắt đầu, hãy chọn một mô hình chuyển đổi giọng nói",

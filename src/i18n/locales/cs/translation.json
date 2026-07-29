@@ -14,8 +14,31 @@
     "advanced": "Pokročilé",
     "postProcessing": "Následné zpracování",
     "history": "Historie",
+    "files": "Soubory",
     "debug": "Ladění",
     "about": "O aplikaci"
+  },
+  "files": {
+    "title": "Přepsat zvukové soubory",
+    "dropHint": "Přetáhněte sem nahrávky hovorů (m4a, mp3, mp4, wav, flac, ogg)",
+    "browse": "Procházet…",
+    "audioFilter": "Zvukové soubory",
+    "queue": "Fronta",
+    "result": "Přepis",
+    "copy": "Kopírovat",
+    "copied": "Přepis zkopírován",
+    "reveal": "Zobrazit soubor",
+    "revealError": "Soubor se nepodařilo zobrazit",
+    "cancel": "Zrušit",
+    "genericError": "Přepis se nezdařil",
+    "status": {
+      "queued": "Čeká",
+      "decoding": "Dekódování…",
+      "transcribing": "Přepisuji…",
+      "done": "Hotovo",
+      "failed": "Selhalo",
+      "cancelled": "Zrušeno"
+    }
   },
   "onboarding": {
     "subtitle": "Pro začátek vyberte model pro přepis",

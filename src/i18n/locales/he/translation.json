@@ -14,8 +14,31 @@
     "advanced": "מתקדם",
     "postProcessing": "עיבוד משלים",
     "history": "היסטוריה",
+    "files": "קבצים",
     "debug": "ניפוי שגיאות",
     "about": "אודות"
+  },
+  "files": {
+    "title": "תמלול קובצי אודיו",
+    "dropHint": "גררו לכאן הקלטות שיחה (m4a, mp3, mp4, wav, flac, ogg)",
+    "browse": "עיון…",
+    "audioFilter": "קובצי אודיו",
+    "queue": "תור",
+    "result": "תמלול",
+    "copy": "העתק",
+    "copied": "התמלול הועתק",
+    "reveal": "הצג קובץ",
+    "revealError": "לא ניתן להציג את הקובץ",
+    "cancel": "ביטול",
+    "genericError": "התמלול נכשל",
+    "status": {
+      "queued": "ממתין",
+      "decoding": "מפענח…",
+      "transcribing": "מתמלל…",
+      "done": "הושלם",
+      "failed": "נכשל",
+      "cancelled": "בוטל"
+    }
   },
   "onboarding": {
     "subtitle": "כדי להתחיל, בחר מודל תמלול",

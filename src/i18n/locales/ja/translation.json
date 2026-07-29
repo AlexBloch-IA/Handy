@@ -14,8 +14,31 @@
     "advanced": "詳細設定",
     "postProcessing": "後処理",
     "history": "履歴",
+    "files": "ファイル",
     "debug": "デバッグ",
     "about": "概要"
+  },
+  "files": {
+    "title": "音声ファイルを文字起こし",
+    "dropHint": "通話の録音をここにドロップ (m4a, mp3, mp4, wav, flac, ogg)",
+    "browse": "参照…",
+    "audioFilter": "音声ファイル",
+    "queue": "キュー",
+    "result": "文字起こし結果",
+    "copy": "コピー",
+    "copied": "文字起こし結果をコピーしました",
+    "reveal": "ファイルを表示",
+    "revealError": "ファイルを表示できませんでした",
+    "cancel": "キャンセル",
+    "genericError": "文字起こしに失敗しました",
+    "status": {
+      "queued": "待機中",
+      "decoding": "デコード中…",
+      "transcribing": "文字起こし中…",
+      "done": "完了",
+      "failed": "失敗",
+      "cancelled": "キャンセル済み"
+    }
   },
   "onboarding": {
     "subtitle": "開始するには、文字起こしのモデルを選択してください",
