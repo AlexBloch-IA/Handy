@@ -1,0 +1,19 @@
+# généré par le déploiement graphify — motifs jamais utiles dans un graphe de code
+node_modules/
+.next/
+.nuxt/
+dist/
+build/
+out/
+coverage/
+.venv/
+venv/
+__pycache__/
+.worktrees/
+.claude/worktrees/
+*.min.js
+*.lock
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+graphify-out/
