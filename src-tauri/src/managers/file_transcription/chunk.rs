@@ -170,9 +170,61 @@ pub fn chunk_with_vad(
     Ok(chunk_ranges(&speech, samples.len()))
 }
 
+/// Point où partager en deux un bloc que le moteur n'a pas pu transcrire d'un
+/// trait : la frame la plus calme du tiers central.
+///
+/// Les modèles à décodeur borné (Cohere, Canary, Qwen3-ASR…) plafonnent le
+/// nombre de tokens produits par appel ; un bloc de parole très dense le
+/// dépasse. Couper dans le tiers central garantit deux moitiés nettement plus
+/// courtes, et viser l'énergie minimale évite de trancher un mot.
+pub fn split_point(samples: &[f32]) -> usize {
+    let frames = samples.len() / FRAME_SAMPLES;
+    if frames < 3 {
+        return samples.len() / 2;
+    }
+    let energy = |f: usize| -> f32 {
+        samples[f * FRAME_SAMPLES..(f + 1) * FRAME_SAMPLES]
+            .iter()
+            .map(|s| s * s)
+            .sum()
+    };
+    let quietest = (frames / 3..frames * 2 / 3)
+        .min_by(|&a, &b| energy(a).total_cmp(&energy(b)))
+        .unwrap_or(frames / 2);
+    // Couper au milieu de la frame calme, pas à son bord.
+    quietest * FRAME_SAMPLES + FRAME_SAMPLES / 2
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn split_point_lands_on_the_quietest_frame_of_the_middle_third() {
+        // 30 frames de « parole », avec une frame silencieuse en position 12.
+        let mut samples = vec![0.5f32; 30 * FRAME_SAMPLES];
+        samples[12 * FRAME_SAMPLES..13 * FRAME_SAMPLES].fill(0.0);
+
+        assert_eq!(
+            split_point(&samples),
+            12 * FRAME_SAMPLES + FRAME_SAMPLES / 2
+        );
+    }
+
+    #[test]
+    fn split_point_ignores_silence_outside_the_middle_third() {
+        // Le silence en frame 2 rendrait une moitié minuscule : ignoré.
+        let mut samples = vec![0.5f32; 30 * FRAME_SAMPLES];
+        samples[2 * FRAME_SAMPLES..3 * FRAME_SAMPLES].fill(0.0);
+
+        let cut = split_point(&samples);
+        assert!(cut >= 10 * FRAME_SAMPLES && cut < 20 * FRAME_SAMPLES);
+    }
+
+    #[test]
+    fn split_point_on_tiny_buffer_is_the_middle() {
+        assert_eq!(split_point(&[0.1f32; 100]), 50);
+    }
 
     /// Construit un masque de frames à partir de segments (durée en frames,
     /// parole ou non).

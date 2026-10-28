@@ -285,8 +285,7 @@ impl FileTranscriptionManager {
             // coûte quelques secondes, c'est toujours mieux.
             self.ensure_model_loaded(&model_id)?;
 
-            let chunk = samples[range.clone()].to_vec();
-            match self.transcription.transcribe(chunk) {
+            match self.transcribe_block(&samples[range.clone()]) {
                 Ok(text) => {
                     let trimmed = text.trim();
                     if !trimmed.is_empty() {
@@ -330,6 +329,36 @@ impl FileTranscriptionManager {
         self.transcription
             .load_model_with_device(model_id, None)
             .map_err(|e| anyhow!("chargement du modèle impossible: {}", e))
+    }
+
+    /// Transcrit un bloc ; si le moteur le rend tronqué (décodeur à contexte
+    /// borné, parole trop dense pour la taille du bloc), le partage en deux au
+    /// point le plus calme et recommence sur chaque moitié.
+    ///
+    /// `transcribe()` aplatit l'erreur du moteur en texte, d'où la détection
+    /// sur le message plutôt que sur le type.
+    fn transcribe_block(&self, samples: &[f32]) -> Result<String> {
+        /// En deçà de 10 s, redécouper ne sauvera rien : on remonte l'erreur.
+        const MIN_SPLIT_SAMPLES: usize = 10 * decode::TARGET_SAMPLE_RATE;
+
+        match self.transcription.transcribe(samples.to_vec()) {
+            Err(e)
+                if samples.len() >= 2 * MIN_SPLIT_SAMPLES
+                    && e.to_string().contains("output truncated") =>
+            {
+                let mid = chunk::split_point(samples);
+                warn!(
+                    "bloc de {:.0} s tronqué par le moteur, redécoupé en deux",
+                    samples.len() as f64 / decode::TARGET_SAMPLE_RATE as f64
+                );
+                let left = self.transcribe_block(&samples[..mid])?;
+                let right = self.transcribe_block(&samples[mid..])?;
+                Ok(format!("{} {}", left.trim(), right.trim())
+                    .trim()
+                    .to_string())
+            }
+            other => other,
+        }
     }
 
     /// Bloque tant qu'un enregistrement micro est en cours, avec un plafond de
